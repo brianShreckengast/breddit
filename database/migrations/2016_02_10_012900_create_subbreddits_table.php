@@ -12,9 +12,9 @@ class CreateSubbredditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subreddits', function (Blueprint $table) {
+        Schema::create('subbreddits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->text('description');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateSubbredditsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('subreddits');
+        Schema::drop('subbreddits');
     }
 }

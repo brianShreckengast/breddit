@@ -29,3 +29,15 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
     //
 });
+
+Route::resource('subbreddits', 'SubbredditController', ['except' => ['edit', 'create']]);
+
+Route::resource('posts', 'PostsController');
+
+
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
